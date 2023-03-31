@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/base.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    
+    <script>
+        // <![CDATA[  <-- For SVG support
+        if ('WebSocket' in window) {
+            (function () {
+                function refreshCSS() {
+                    var sheets = [].slice.call(document.getElementsByTagName("link"));
+                    var head = document.getElementsByTagName("head")[0];
+                    for (var i = 0; i < sheets.length; ++i) {
+                        var elem = sheets[i];
+                        var parent = elem.parentElement || head;
+                        parent.removeChild(elem);
+                        var rel = elem.rel;
+                        if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                            var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                            elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+                        }
+                        parent.appendChild(elem);
+                    }
+                }
+                var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+                var address = protocol + window.location.host + window.location.pathname + '/ws';
+                var socket = new WebSocket(address);
+                socket.onmessage = function (msg) {
+                    if (msg.data == 'reload') window.location.reload();
+                    else if (msg.data == 'refreshcss') refreshCSS();
+                };
+                if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+                    console.log('Live reload enabled.');
+                    sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+                }
+            })();
+        }
+        else {
+            console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+        }
+        // ]]>
+    </script>
+</head>
+<body>
+<div class="app">
+        <!--Phần header -->
+        <div class="header">
+
+            <div class="NavBar_logo">
+                <a href="index.html">
+                    <img src="./assets/img/logo.png" alt="">
+                </a>
+                <h4 class="NavBar_logoheading">
+                   Học Trực Tuyến     
+                </h4>
+            </div>
+
+            <div class="NavBar_body d-flex-center">
+                <div  class="Search_wrapper d-flex-center" >
+                    <div  class="Search_searchIcon"></div>
+                    <input class="Search_input"  placeholder="Tìm kiếm khóa học, bài viết, video, ..." value="">
+                </div>
+            </div>
+
+            <div class="NavBar_actions">
+                    
+                    <a href="Dangky.html" class="NavBar_loginBtn">Đăng Ký</a>
+                    <a href="ĐangNhap.html" class="NavBar_loginBtn">Đăng nhập</a>
+            </div>   
+        </div>
+        <!--Phần container-->
+<div class="App_withSidebar">
+<div class="App_sidebarWrap">
+    <div class="Sidebar_wrapper">
+        <ul class="">
+            <li>
+                <a href="" class="Sidebar_items">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="" class="Sidebar_items">
+                    <i class="fa-solid fa-pen"></i>
+                </a>
+                <span> Lớp học</span>
+            </li>
+            <li>
+                <a href="" class="Sidebar_items">
+                    <i class="fa-solid fa-book"></i>
+                </a>
+                <span> Tài liệu</span>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- <div class="AppwithSidebarContent">
+
+    <div class="home-page">
+        <div class="banner">
+    <div class="container">
+        <h1 class="logo-font">conduit</h1>
+        <p>A place to share your knowledge.</p>
+    </div>
+            </div>
+        <div class="container page">
+                <div class="row">
+                <div class="col-md-9">
+                    <div class="feed-toggle">
+                    <ul class="nav nav-pills outline-active">
+                        <li class="nav-item">
+                        <a class="nav-link disabled" href="">Your Feed</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link active" href="">Global Feed</a>
+                        </li>
+                    </ul>
+                    </div>
+            
+                    <div class="article-preview">
+                    <div class="article-meta">
+                        <a href="profile.html"><img src="http://i.imgur.com/Qr71crq.jpg" /></a>
+                        <div class="info">
+                        <a href="" class="author">Eric Simons</a>
+                        <span class="date">January 20th</span>
+                        </div>
+                        <button class="btn btn-outline-primary btn-sm pull-xs-right">
+                        <i class="ion-heart"></i> 29
+                        </button>
+                    </div>
+                    <a href="" class="preview-link">
+                        <h1>How to build webapps that scale</h1>
+                        <p>This is the description for the post.</p>
+                        <span>Read more...</span>
+                    </a>
+                    </div>
+            
+                    <div class="article-preview">
+                    <div class="article-meta">
+                        <a href="profile.html"><img src="http://i.imgur.com/N4VcUeJ.jpg" /></a>
+                        <div class="info">
+                        <a href="" class="author">Albert Pai</a>
+                        <span class="date">January 20th</span>
+                        </div>
+                        <button class="btn btn-outline-primary btn-sm pull-xs-right">
+                        <i class="ion-heart"></i> 32
+                        </button>
+                    </div>
+                    <a href="" class="preview-link">
+                        <h1>The song you won't ever stop singing. No matter how hard you try.</h1>
+                        <p>This is the description for the post.</p>
+                        <span>Read more...</span>
+                    </a>
+                    </div>
+                </div>
+            
+                <div class="col-md-3">
+                    <div class="sidebar">
+                    <p>Popular Tags</p>
+            
+                    <div class="tag-list">
+                        <a href="" class="tag-pill tag-default">programming</a>
+                        <a href="" class="tag-pill tag-default">javascript</a>
+                        <a href="" class="tag-pill tag-default">emberjs</a>
+                        <a href="" class="tag-pill tag-default">angularjs</a>
+                        <a href="" class="tag-pill tag-default">react</a>
+                        <a href="" class="tag-pill tag-default">mean</a>
+                        <a href="" class="tag-pill tag-default">node</a>
+                        <a href="" class="tag-pill tag-default">rails</a>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+</div>
+
+        <!--phần footer-->
+<footer class="footer">
+<section class="index-module_grid index-modul_wide" style="max-width:1100px ;">
+    <section class="index-modul_row">
+        <section class="index-modul_col">
+            <div>
+                <div class="Footer_column">
+                    <div class="Footer_column-top">
+                        <a href="">
+                            <img src="./assets/img/logo.png" class="Footer_column-img" alt="">
+
+                        </a>
+                        <h2 class="Footer_top-slogan">
+                            Học trực tuyến
+                        </h2>
+                    </div>
+                    <p class="Footer_contact-list">
+                        Điện thoại: <a href="tel:0246.329.1102">0246.329.1102</a>
+                        <br>Email: <a href="mailto:contact@students.edu.vn">contact@students.hou.edu.vn</a>
+                        <br>Địa chỉ: 96 Phố Định Công, Phương Liệt, Thanh Xuân, Hà Nội
+                    </p>
+                </div>
+            </div>
+            
+        </section>
+    <section class="index-modul_col">
+        
+            <div class="Footer_column">
+                <div>
+                    <h2 class="Footer_top-heading">
+                        Về FIT
+                    </h2>
+                    <ul class="Footer_contact-list">
+                        <li>
+                            <a href="">Giới Thiệu</a>    </li>
+                        <li> <a href="">Liên hệ</a></li>
+                        <li>
+                            <a href="">Điều khoản</a></li>
+                        <li><a href="">Bảo mật</a></li>
+                        </ul>
+                </div>
+                </div>
+        
+    </section>
+    <section class="index-modul_col">
+        
+            <div class="Footer_column">
+                <div>
+                    <h2 class="Footer_top-heading">
+                        Danh mục
+                    </h2>
+                    <ul class="Footer_contact-list">
+                        <li>
+                            <a href="">Trang chủ</a></li>
+                        <li> <a href="">Lớp học</a></li>
+                        <li>
+                            <a href="">Tài liệu</a></li>     
+                    </ul>
+                </div>     
+            </div>    
+    </section>
+    <section class="index-modul_col">
+        
+        <div class="Footer_column">
+            <div>
+                <h2 class="Footer_top-heading">
+                   Theo dõi chúng tôi
+                </h2>
+                <ul class="Footer_contact-list">
+                    <li>
+                        <a href="">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a></li>
+                    <li> <a href=""><i class="fa-brands fa-instagram"></i></a></li>
+                    <li>
+                        <a href=""><i class="fa-brands fa-tiktok"></i></a></li>     
+                </ul>
+            </div>     
+        </div>    
+</section>
+    </section>
+</section>
+</footer>
+    </div>
+</body>
+</html>
