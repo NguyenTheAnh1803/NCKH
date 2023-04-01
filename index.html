@@ -9,43 +9,7 @@
     <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     
-    <script>
-        // <![CDATA[  <-- For SVG support
-        if ('WebSocket' in window) {
-            (function () {
-                function refreshCSS() {
-                    var sheets = [].slice.call(document.getElementsByTagName("link"));
-                    var head = document.getElementsByTagName("head")[0];
-                    for (var i = 0; i < sheets.length; ++i) {
-                        var elem = sheets[i];
-                        var parent = elem.parentElement || head;
-                        parent.removeChild(elem);
-                        var rel = elem.rel;
-                        if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-                            var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-                            elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-                        }
-                        parent.appendChild(elem);
-                    }
-                }
-                var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-                var address = protocol + window.location.host + window.location.pathname + '/ws';
-                var socket = new WebSocket(address);
-                socket.onmessage = function (msg) {
-                    if (msg.data == 'reload') window.location.reload();
-                    else if (msg.data == 'refreshcss') refreshCSS();
-                };
-                if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-                    console.log('Live reload enabled.');
-                    sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-                }
-            })();
-        }
-        else {
-            console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-        }
-        // ]]>
-    </script>
+   
 </head>
 <body>
 <div class="app">
@@ -54,7 +18,7 @@
 
             <div class="NavBar_logo">
                 <a href="index.html">
-                    <img src="./assets/img/logo.png" alt="">
+                    <img src="./assets/img/logo.png" alt="ảnh logo" style="border-radius: 8px;">
                 </a>
                 <h4 class="NavBar_logoheading">
                    Học Trực Tuyến     
@@ -80,13 +44,14 @@
     <div class="Sidebar_wrapper">
         <ul class="">
             <li>
-                <a href="" class="Sidebar_items">
+                <a href="index.html" class="Sidebar_items">
                     <i class="fa-solid fa-house"></i>
-                    <span>Home</span>
                 </a>
+                <span>Home</span>
+
             </li>
             <li>
-                <a href="hoctructuyen.html" class="Sidebar_items">
+                <a href="lophoc.html" class="Sidebar_items">
                     <i class="fa-solid fa-pen"></i>
                 </a>
                 <span> Lớp học</span>
@@ -103,11 +68,12 @@
     <div class="AppwithSidebarContent">
         <section class="index-module_grid index-module_fullwith" style="max-width: 1920px;">
             <div class="Home_slideShow">
-                <div class="Slideshow_wrapper">
+                <div   div class="Slideshow_wrapper">
                     <div class="slick-slider slick-initialized">
-                        <div class="Slideshow_arow Slideshow_prev"></div>
+                        <div class="Slideshow_arow__GTGXj Slideshow_prev_Kvm2x"></div>
                         <div class="Slick-list">
-                           <div class="slick-track" style="width: 14696px; opacity: 1; transform: translate3d(-4008px, 0px, 0px); transition: -webkit-transform 800ms ease 0s;">
+
+                           <!-- <div class="slick-track" style="width: 14696px; opacity: 1; transform: translate3d(-4008px, 0px, 0px); transition: -webkit-transform 800ms ease 0s;">
                             <div data-index="-1" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true" style="width: 1336px;">
                                 <div>
                                     <div tabindex="-1" style="width: 100%; display: inline-block;">
@@ -378,28 +344,30 @@
                             </div>
                         </div>
                     </div>
-</div>
+</div> -->
                         </div>
-                        <div class="Slideshow_arrow__GTGXj Slideshow_next__I6VEg">
+                        <!-- <div class="Slideshow_arrow__GTGXj Slideshow_next__I6VEg">
                             <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
                                 <path fill="currentColor" d="M96 480c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L242.8 256L73.38 86.63c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l192 192c12.5 12.5 12.5 32.75 0 45.25l-192 192C112.4 476.9 104.2 480 96 480z">
 
                                 </path>
                             </svg>
-                        </div>
+                        </div> -->
                         <ul class="slick-dots" style="display: block;">
                             <li class="slick-active">
-                                <button>1</button>
+                                <button>
+                                  
+                                    "1"</button>
                             </li>
-                            <li class="">
+                            <li class="slick-active">
                                 <button>2</button>
                             </li>
-                            <li class="">
+                            <li class="slick-active">
                                 <button>3</button>
                             </li>
-                            <li class="">
+                            <li class="slick-active">
                                 <button>4</button>
-                            </li><li class="">x
+                            </li><li class="slick-active">
                                 <button>5</button>
                             </li></ul>
                     </div>
@@ -410,7 +378,7 @@
                     <div>
                         <div class="ScrollList_heading-wrap__58LQx">
                             <h2 class="ScrollList_heading__BYEXH">
-                                <span rel="noreferrer" target="_self">Khóa học Pro
+                                <span rel="noreferrer" target="_self">Các lớp học nổi bật 
                                     <span class="ScrollList_label__aulkb">Mới                                       
                                     </span>
                                 </span>
@@ -426,7 +394,7 @@
                                     </button>
                                 </a>
                                 <h3 class="CommonItem_title__EpYrE">
-                                    <a target="_self" href="/landing/htmlcss">HTML CSS Pro
+                                    <a target="_self" href="phonghoc.html">HTML CSS Pro
 
                                     </a>
                                 </h3>
@@ -495,7 +463,7 @@
                         </p>
                         <div class="ScrollList_heading-wrap__58LQx">
                             <h2 class="ScrollList_heading__BYEXH">
-                                <a rel="noreferrer" target="_self" href="/learning-paths">Khóa học miễn phí
+                                <a rel="noreferrer" target="_self" href="lophoc.html">Lớp học
                                     <span class="ScrollList_view-all-icon__ih66M">
                                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right" class="svg-inline--fa fa-arrow-right " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                             <path fill="currentColor" d="M438.6 278.6l-160 160C272.4 444.9 264.2 448 256 448s-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L338.8 288H32C14.33 288 .0016 273.7 .0016 256S14.33 224 32 224h306.8l-105.4-105.4c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160C451.1 245.9 451.1 266.1 438.6 278.6z">
@@ -505,7 +473,7 @@
                                     </span>
                                 </a>
                             </h2>
-                            <a class="ScrollList_view-all__MTYc1" rel="noreferrer" target="_self" href="/learning-paths">Xem lộ trình
+                            <a class="ScrollList_view-all__MTYc1" rel="noreferrer" target="_self" href="">Xem tất cả
                                 <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
                                     <path fill="currentColor" d="M96 480c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L242.8 256L73.38 86.63c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l192 192c12.5 12.5 12.5 32.75 0 45.25l-192 192C112.4 476.9 104.2 480 96 480z">
 
@@ -518,7 +486,7 @@
                         <section class="index-module_row__-AHgh">
                             <section class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-4__30Uoi index-module_l-3__MjWvb">
                                 <div class="CommonItem_wrapper__1FbHi Home_courseItem__aIeZ4">
-                                    <a class="CommonItem_thumb__ew8Jj CommonItem_has-link__VLLrX" title="Kiến Thức Nhập Môn IT" target="_self" href="/courses/lessons-for-newbie" style="background-image: url(&quot;https://files.fullstack.edu.vn/f8-prod/courses/7.png&quot;);">
+                                    <a class="CommonItem_thumb__ew8Jj CommonItem_has-link__VLLrX" title="Kiến Thức Nhập Môn IT" target="_self" href="phonghoc.html" style="background-image: url(&quot;https://files.fullstack.edu.vn/f8-prod/courses/7.png&quot;);">
                                         <button class="Button_btn__RW1e2 CommonItem_cta-btn__OK+oX">Xem khóa học
 
                                         </button>
@@ -548,7 +516,7 @@
                                         </button>
                                     </a>
                                     <h3 class="CommonItem_title__EpYrE">
-                                        <a target="_self" href="/courses/lap-trinh-c-co-ban-toi-nang-cao">Lập trình C++ cơ bản, nâng cao
+                                        <a target="_self" href="phonghoc.html">Lập trình C++ cơ bản, nâng cao
 
                                         </a>
                                     </h3>
@@ -566,13 +534,13 @@
                             </section>
                             <section class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-4__30Uoi index-module_l-3__MjWvb">
                                 <div class="CommonItem_wrapper__1FbHi Home_courseItem__aIeZ4">
-                                    <a class="CommonItem_thumb__ew8Jj CommonItem_has-link__VLLrX" title="HTML CSS từ Zero đến Hero" target="_self" href="/learning/html-css" style="background-image: url(&quot;https://files.fullstack.edu.vn/f8-prod/courses/2.png&quot;);">
+                                    <a class="CommonItem_thumb__ew8Jj CommonItem_has-link__VLLrX" title="HTML CSS từ Zero đến Hero" target="_self" href="phonghoc.html" style="background-image: url(&quot;https://files.fullstack.edu.vn/f8-prod/courses/2.png&quot;);">
                                         <button class="Button_btn__RW1e2 CommonItem_cta-btn__OK+oX">Tiếp tục học
 
                                         </button>
                                     </a>
                                     <h3 class="CommonItem_title__EpYrE">
-                                        <a target="_self" href="/learning/html-css">HTML CSS từ Zero đến Hero
+                                        <a target="_self" href="phonghoc.html">HTML CSS từ Zero đến Hero
 
                                         </a>
                                     </h3>
@@ -590,13 +558,13 @@
                             </section>
                             <section class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-4__30Uoi index-module_l-3__MjWvb">
                                 <div class="CommonItem_wrapper__1FbHi Home_courseItem__aIeZ4">
-                                    <a class="CommonItem_thumb__ew8Jj CommonItem_has-link__VLLrX" title="Responsive Với Grid System" target="_self" href="/courses/responsive-web-design" style="background-image: url(&quot;https://files.fullstack.edu.vn/f8-prod/courses/3.png&quot;);">
+                                    <a class="CommonItem_thumb__ew8Jj CommonItem_has-link__VLLrX" title="Responsive Với Grid System" target="_self" href="phonghoc.html" style="background-image: url(&quot;https://files.fullstack.edu.vn/f8-prod/courses/3.png&quot;);">
                                         <button class="Button_btn__RW1e2 CommonItem_cta-btn__OK+oX">Xem khóa học
 
                                         </button>
                                     </a>
                                     <h3 class="CommonItem_title__EpYrE">
-                                        <a target="_self" href="/courses/responsive-web-design">Responsive Với Grid System
+                                        <a target="_self" href="phonghoc.html">Responsive Với Grid System
 
                                         </a>
                                     </h3>
@@ -614,13 +582,13 @@
                             </section>
                             <section class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-4__30Uoi index-module_l-3__MjWvb">
                                 <div class="CommonItem_wrapper__1FbHi Home_courseItem__aIeZ4">
-                                    <a class="CommonItem_thumb__ew8Jj CommonItem_has-link__VLLrX" title="Lập Trình JavaScript Cơ Bản" target="_self" href="/courses/javascript-co-ban" style="background-image: url(&quot;https://files.fullstack.edu.vn/f8-prod/courses/1.png&quot;);">
+                                    <a class="CommonItem_thumb__ew8Jj CommonItem_has-link__VLLrX" title="Lập Trình JavaScript Cơ Bản" target="_self" href="phonghoc.html" style="background-image: url(&quot;https://files.fullstack.edu.vn/f8-prod/courses/1.png&quot;);">
                                         <button class="Button_btn__RW1e2 CommonItem_cta-btn__OK+oX">Xem khóa học
 
                                         </button>
                                     </a>
                                     <h3 class="CommonItem_title__EpYrE">
-                                        <a target="_self" href="/courses/javascript-co-ban">Lập Trình JavaScript Cơ Bản
+                                        <a target="_self" href="phonghoc.html">Lập Trình JavaScript Cơ Bản
 
                                         </a>
                                     </h3>
@@ -638,13 +606,13 @@
                             </section>
                             <section class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-4__30Uoi index-module_l-3__MjWvb">
                                 <div class="CommonItem_wrapper__1FbHi Home_courseItem__aIeZ4">
-                                    <a class="CommonItem_thumb__ew8Jj CommonItem_has-link__VLLrX" title="Lập Trình JavaScript Nâng Cao" target="_self" href="/courses/javascript-nang-cao" style="background-image: url(&quot;https://files.fullstack.edu.vn/f8-prod/courses/12.png&quot;);">
+                                    <a class="CommonItem_thumb__ew8Jj CommonItem_has-link__VLLrX" title="Lập Trình JavaScript Nâng Cao" target="_self" href="phonghoc.html" style="background-image: url(&quot;https://files.fullstack.edu.vn/f8-prod/courses/12.png&quot;);">
                                         <button class="Button_btn__RW1e2 CommonItem_cta-btn__OK+oX">Xem khóa học
 
                                         </button>
                                     </a>
                                     <h3 class="CommonItem_title__EpYrE">
-                                        <a target="_self" href="/courses/javascript-nang-cao">Lập Trình JavaScript Nâng Cao
+                                        <a target="_self" href="phonghoc.html">Lập Trình JavaScript Nâng Cao
 
                                         </a>
                                     </h3>
@@ -756,7 +724,7 @@
                 <div>
                     <div class="ScrollList_heading-wrap__58LQx">
                         <h2 class="ScrollList_heading__BYEXH">
-                            <a rel="noreferrer" target="_self" href="/blog">Bài viết nổi bật
+                            <a rel="noreferrer" target="_self" href="/blog">Tài liệu học tập
                                 <span class="ScrollList_view-all-icon__ih66M">
                                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right" class="svg-inline--fa fa-arrow-right " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                         <path fill="currentColor" d="M438.6 278.6l-160 160C272.4 444.9 264.2 448 256 448s-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L338.8 288H32C14.33 288 .0016 273.7 .0016 256S14.33 224 32 224h306.8l-105.4-105.4c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160C451.1 245.9 451.1 266.1 438.6 278.6z">                                         
@@ -765,7 +733,7 @@
                                 </span>
                             </a>
                         </h2>
-                        <a class="ScrollList_view-all__MTYc1" rel="noreferrer" target="_self" href="/blog">Xem tất cả
+                        <a class="ScrollList_view-all__MTYc1" rel="noreferrer" target="_self" href="Tailieu.html">Xem tất cả
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
                             <path fill="currentColor" d="M96 480c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L242.8 256L73.38 86.63c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l192 192c12.5 12.5 12.5 32.75 0 45.25l-192 192C112.4 476.9 104.2 480 96 480z">
 
@@ -787,9 +755,9 @@
                                 </h3>
                                 <div class="PostItem_author__z4G8z">
                                     <a class="PostItem_avatar-wrapper__IdMDr" href="/@son-dang">
-                                        <div class="FallbackAvatar_avatar__gmj3S FallbackAvatar_pro__-8mK+" style="--font-size:2.9px;"><img src="https://files.fullstack.edu.vn/f8-prod/user_avatars/1/623d4b2d95cec.png" alt="Sơn Đặng">
+                                        <div class="FallbackAvatar_avatar__gmj3S FallbackAvatar_pro__-8mK+" style="--font-size:2.9px;"><img src="./assets/img/logo.png" alt="Sơn Đặng">
                                             <img class="FallbackAvatar_crown__BnONf" src="/static/media/crown.8edf462029b3c37a7f673303d8d3bedc.svg" alt="crown"></div></a><a href="/@son-dang">
-                                                <span class="PostItem_user-name__y5bjl">Sơn Đặng</span>
+                                                <span class="PostItem_user-name__y5bjl">TheAnh</span>
                                                 <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-check" class="svg-inline--fa fa-circle-check UserName_icon__zT+rB" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="font-size: 1.2rem;">
                                                 <path fill="currentColor" d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM371.8 211.8C382.7 200.9 382.7 183.1 371.8 172.2C360.9 161.3 343.1 161.3 332.2 172.2L224 280.4L179.8 236.2C168.9 225.3 151.1 225.3 140.2 236.2C129.3 247.1 129.3 264.9 140.2 275.8L204.2 339.8C215.1 350.7 232.9 350.7 243.8 339.8L371.8 211.8z"></path></svg><span class="PostItem_dot__CQhTT">·</span>
                                                 <span>6 phút đọc</span>
@@ -806,19 +774,19 @@
                                 <div class="PostItem_author__z4G8z">
                                     <a class="PostItem_avatar-wrapper__IdMDr" href="/@son-dang">
                                         <div class="FallbackAvatar_avatar__gmj3S FallbackAvatar_pro__-8mK+" style="--font-size:2.9px;">
-                                            <img src="https://files.fullstack.edu.vn/f8-prod/user_avatars/1/623d4b2d95cec.png" alt="Sơn Đặng">
+                                            <img src="./assets/img/logo.png" alt="Sơn Đặng">
                                             <img class="FallbackAvatar_crown__BnONf" src="/static/media/crown.8edf462029b3c37a7f673303d8d3bedc.svg" alt="crown">
                                         </div>
                                     </a>
-                                    <a href="/@son-dang">
-                                        <span class="PostItem_user-name__y5bjl">Sơn Đặng</span>
+                                    <a href="/@son-dang">       
+                                        <span class="PostItem_user-name__y5bjl">Quang Thanng</span>
                                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-check" class="svg-inline--fa fa-circle-check UserName_icon__zT+rB" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="font-size: 1.2rem;"><path fill="currentColor" d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM371.8 211.8C382.7 200.9 382.7 183.1 371.8 172.2C360.9 161.3 343.1 161.3 332.2 172.2L224 280.4L179.8 236.2C168.9 225.3 151.1 225.3 140.2 236.2C129.3 247.1 129.3 264.9 140.2 275.8L204.2 339.8C215.1 350.7 232.9 350.7 243.8 339.8L371.8 211.8z"></path></svg><span class="PostItem_dot__CQhTT">·</span><span>12 phút đọc</span></a></div></div></section><section class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-4__30Uoi index-module_l-3__MjWvb">
                                             <div class="CommonItem_wrapper__1FbHi">
                                                 <a class="CommonItem_thumb__ew8Jj CommonItem_has-link__VLLrX" title="Ký sự ngày thứ 25 học ở F8&nbsp;" target="_self" href="/blog/ky-su-ngay-thu-25-hoc-o-f8-1.html" style="background-image: url(&quot;https://files.fullstack.edu.vn/f8-prod/blog_posts/51/6139c6453456e.png&quot;);">
                                                     <button class="Button_btn__RW1e2 CommonItem_cta-btn__OK+oX">Xem bài viết</button>
                                                 </a>
                                                 <h3 class="CommonItem_title__EpYrE">
-                                                    <a target="_self" href="/blog/ky-su-ngay-thu-25-hoc-o-f8-1.html">Ký sự ngày thứ 25 học ở F8&nbsp;</a>
+                                                    <a target="_self" href="/blog/ky-su-ngay-thu-25-hoc-o-f8-1.html">Ký sự ngày thứ 25 học ở FIT&nbsp;</a>
                                                 </h3>
                                                 <div class="PostItem_author__z4G8z">
                                                     <a class="PostItem_avatar-wrapper__IdMDr" href="/@son-son-16">
@@ -891,7 +859,7 @@
                                                     </div>
                                                 </div>
                                             </section>
-                                            <section class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-4__30Uoi index-module_l-3__MjWvb"><div class="CommonItem_wrapper__1FbHi"><a class="CommonItem_thumb__ew8Jj CommonItem_has-link__VLLrX" title="Tổng hợp tài liệu tự học tiếng anh cơ bản." target="_self" href="/blog/tong-hop-tai-lieu-tu-hoc-tieng-anh-co-ban.html" style="background-image: url(&quot;https://files.fullstack.edu.vn/f8-prod/blog_posts/273/614043e523ad9.png&quot;);"><button class="Button_btn__RW1e2 CommonItem_cta-btn__OK+oX">Xem bài viết</button></a><h3 class="CommonItem_title__EpYrE"><a target="_self" href="/blog/tong-hop-tai-lieu-tu-hoc-tieng-anh-co-ban.html">Tổng hợp tài liệu tự học tiếng anh cơ bản.</a></h3><div class="PostItem_author__z4G8z"><a class="PostItem_avatar-wrapper__IdMDr" href="/@le-thanh-trung-5"><div class="FallbackAvatar_avatar__gmj3S" style="--font-size:2.9px;"><img src="https://files.fullstack.edu.vn/f8-prod/user_avatars/74901/626aa252cdb22.jpg" alt="Lê Thành Trung"></div></a><a href="/@le-thanh-trung-5"><span class="PostItem_user-name__y5bjl">Lê Thành Trung</span><span class="PostItem_dot__CQhTT">·</span><span>8 phút đọc</span></a></div></div></section><section class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-4__30Uoi index-module_l-3__MjWvb"><div class="CommonItem_wrapper__1FbHi"><a class="CommonItem_thumb__ew8Jj CommonItem_has-link__VLLrX" title="Học như thế nào là phù hợp ?" target="_self" href="/blog/hoc-nhu-the-nao-la-phu-hop.html" style="background-image: url(&quot;https://files.fullstack.edu.vn/f8-prod/blog_posts/791/615de64de7e8f.jpg&quot;);"><button class="Button_btn__RW1e2 CommonItem_cta-btn__OK+oX">Xem bài viết</button></a><h3 class="CommonItem_title__EpYrE"><a target="_self" href="/blog/hoc-nhu-the-nao-la-phu-hop.html">Học như thế nào là phù hợp ?</a></h3><div class="PostItem_author__z4G8z"><a class="PostItem_avatar-wrapper__IdMDr" href="/@tien-pham-ngoc"><div class="FallbackAvatar_avatar__gmj3S" style="--font-size:2.9px;"><img src="/static/media/fallback-avatar.155cdb2376c5d99ea151.jpg" alt="Tien Pham Ngoc"></div></a><a href="/@tien-pham-ngoc"><span class="PostItem_user-name__y5bjl">Tien Pham Ngoc</span><span class="PostItem_dot__CQhTT">·</span><span>4 phút đọc</span></a></div></div></section></section><div class="ScrollList_view-all-box__cBYFh"><div class="ContinueButton_wrapper__9oxty"><a class="ContinueButton_body__Bh+7I" rel="noreferrer" target="_self" href="/blog"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right" class="svg-inline--fa fa-arrow-right " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M438.6 278.6l-160 160C272.4 444.9 264.2 448 256 448s-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L338.8 288H32C14.33 288 .0016 273.7 .0016 256S14.33 224 32 224h306.8l-105.4-105.4c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160C451.1 245.9 451.1 266.1 438.6 278.6z"></path></svg></a></div></div></div></div>  
+                        <section class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-4__30Uoi index-module_l-3__MjWvb"><div class="CommonItem_wrapper__1FbHi"><a class="CommonItem_thumb__ew8Jj CommonItem_has-link__VLLrX" title="Tổng hợp tài liệu tự học tiếng anh cơ bản." target="_self" href="/blog/tong-hop-tai-lieu-tu-hoc-tieng-anh-co-ban.html" style="background-image: url(&quot;https://files.fullstack.edu.vn/f8-prod/blog_posts/273/614043e523ad9.png&quot;);"><button class="Button_btn__RW1e2 CommonItem_cta-btn__OK+oX">Xem bài viết</button></a><h3 class="CommonItem_title__EpYrE"><a target="_self" href="/blog/tong-hop-tai-lieu-tu-hoc-tieng-anh-co-ban.html">Tổng hợp tài liệu tự học tiếng anh cơ bản.</a></h3><div class="PostItem_author__z4G8z"><a class="PostItem_avatar-wrapper__IdMDr" href="/@le-thanh-trung-5"><div class="FallbackAvatar_avatar__gmj3S" style="--font-size:2.9px;"><img src="https://files.fullstack.edu.vn/f8-prod/user_avatars/74901/626aa252cdb22.jpg" alt="Lê Thành Trung"></div></a><a href="/@le-thanh-trung-5"><span class="PostItem_user-name__y5bjl">Lê Thành Trung</span><span class="PostItem_dot__CQhTT">·</span><span>8 phút đọc</span></a></div></div></section><section class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-4__30Uoi index-module_l-3__MjWvb"><div class="CommonItem_wrapper__1FbHi"><a class="CommonItem_thumb__ew8Jj CommonItem_has-link__VLLrX" title="Học như thế nào là phù hợp ?" target="_self" href="/blog/hoc-nhu-the-nao-la-phu-hop.html" style="background-image: url(&quot;https://files.fullstack.edu.vn/f8-prod/blog_posts/791/615de64de7e8f.jpg&quot;);"><button class="Button_btn__RW1e2 CommonItem_cta-btn__OK+oX">Xem bài viết</button></a><h3 class="CommonItem_title__EpYrE"><a target="_self" href="/blog/hoc-nhu-the-nao-la-phu-hop.html">Học như thế nào là phù hợp ?</a></h3><div class="PostItem_author__z4G8z"><a class="PostItem_avatar-wrapper__IdMDr" href="/@tien-pham-ngoc"><div class="FallbackAvatar_avatar__gmj3S" style="--font-size:2.9px;"><img src="/static/media/fallback-avatar.155cdb2376c5d99ea151.jpg" alt="Tien Pham Ngoc"></div></a><a href="/@tien-pham-ngoc"><span class="PostItem_user-name__y5bjl">Tien Pham Ngoc</span><span class="PostItem_dot__CQhTT">·</span><span>4 phút đọc</span></a></div></div></section></section><div class="ScrollList_view-all-box__cBYFh"><div class="ContinueButton_wrapper__9oxty"><a class="ContinueButton_body__Bh+7I" rel="noreferrer" target="_self" href="/blog"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right" class="svg-inline--fa fa-arrow-right " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M438.6 278.6l-160 160C272.4 444.9 264.2 448 256 448s-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L338.8 288H32C14.33 288 .0016 273.7 .0016 256S14.33 224 32 224h306.8l-105.4-105.4c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160C451.1 245.9 451.1 266.1 438.6 278.6z"></path></svg></a></div></div></div></div>  
             </div>
         </section>
     </div>
@@ -1002,13 +970,13 @@
             </div>
             
         </section>
-    <section class="index-modul_col">
+    <section class="index-module_col">
         
             <div class="Footer_column">
                 <div>
                     <h2 class="Footer_top-heading">
                         Về FIT
-                    </h2>
+                    </h2>   
                     <ul class="Footer_contact-list">
                         <li>
                             <a href="">Giới Thiệu</a>    </li>
